@@ -32,10 +32,13 @@ let g:airline_theme='solarized'
 let g:airline_solarized_bg='dark'
 
 
-" general
+"line numbers
+:set number
+
+"tabs 
 set expandtab
 set tabstop=4
-
+set shiftwidth=4
 
 let mapleader = "\<Space>"
 nnoremap <leader>ev :vnew ~/.vimrc<cr>
@@ -47,3 +50,10 @@ nnoremap <C-h> <c-w>h
 nnoremap <C-j> <c-w>j
 nnoremap <C-k> <c-w>k
 nnoremap <C-l> <c-w>l
+
+"block cursor
+let &t_SI = "\<Esc>[6 q"
+let &t_SR = "\<Esc>[4 q"
+
+
+nnoremap <leader>t :! tmux send-keys -t 1 "cmake ..&& make" Enter<CR><CR>
